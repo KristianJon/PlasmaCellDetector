@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" type="HBox" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+    <HBox fx:id="mainBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="150.0">
+       <children>
+          <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="300.0">
+             <children>
+               <Label text="Prediction">
+                  <VBox.margin>
+                     <Insets bottom="60.0" />
+                  </VBox.margin>
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+               </Label>
+               <Label text="Select custom model:">
+                  <VBox.margin>
+                     <Insets bottom="5.0" />
+                  </VBox.margin></Label>
+               <TextField fx:id="modelLabel" disable="true" prefWidth="120.0" />
+               <Button fx:id="modelSelectionButton" mnemonicParsing="false" onMouseClicked="#promptForFile" prefWidth="90.0" text="Select model">
+                  <VBox.margin>
+                     <Insets bottom="30.0" top="10.0" />
+                  </VBox.margin></Button>
+               <Label text="Expected image size:">
+                  <VBox.margin>
+                     <Insets bottom="5.0" />
+                  </VBox.margin>
+               </Label>
+               <TextField fx:id="imageSize" disable="true" prefWidth="120.0" promptText="Image size ..." />
+               <Button fx:id="imageSizeButton" disable="true" mnemonicParsing="false" onMouseClicked="#registerImageSize" prefWidth="90.0" text="Submit">
+                  <VBox.margin>
+                     <Insets bottom="30.0" top="10.0" />
+                  </VBox.margin></Button>
+                <Button fx:id="makePredictionButton" disable="true" mnemonicParsing="false" onMouseClicked="#handlePrediction" text="Make prediction" />
+               <Label fx:id="annotationProcessingLabel">
+                  <padding>
+                     <Insets bottom="5.0" top="50.0" />
+                  </padding>
+               </Label>
+               <ProgressBar fx:id="progressBar" prefWidth="120.0" progress="0.0">
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </ProgressBar>
+               <Label fx:id="percentLabel" />
+               <Button fx:id="viewSummary" mnemonicParsing="false" onMouseClicked="#openSummaryScene" text="Summary" />
+             </children>
+          </VBox>
+       </children>
+    </HBox>
+</fx:root>

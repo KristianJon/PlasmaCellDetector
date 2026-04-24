@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" type="BorderPane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <GridPane fx:id="gridNode" alignment="CENTER" gridLinesVisible="true" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+            </rowConstraints>
+        </GridPane>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <CheckBox fx:id="reviewSelection" mnemonicParsing="false" onAction="#changeViewToReview" text="Review">
+                    <HBox.margin>
+                        <Insets right="60.0" />
+                    </HBox.margin>
+                </CheckBox>
+                <Button fx:id="previous" mnemonicParsing="false" onMouseClicked="#fetchPreviousPredictions" prefWidth="70.0" text="Previous">
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin></Button>
+                <Label fx:id="currentPageID" />
+                <Label text="/" />
+                <Label fx:id="totalPageCount" />
+                <Button fx:id="next" mnemonicParsing="false" onMouseClicked="#fetchNextPredictions" prefWidth="70.0" text="Next">
+                    <HBox.margin>
+                        <Insets left="20.0" right="30.0" />
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="verifyAnnotations" mnemonicParsing="false" onMouseClicked="#verifySelectedAnnotations" prefWidth="70.0" text="Verify">
+                    <HBox.margin>
+                        <Insets left="10.0" right="200.0" />
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </bottom>
+    <right>
+        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="150.0">
+            <children>
+                <VBox alignment="CENTER" fillWidth="false" prefHeight="561.0" prefWidth="200.0">
+                    <children>
+                          <TextField fx:id="modelLabel" disable="true" prefWidth="120.0" />
+                          <Button fx:id="modelSelectionButton" mnemonicParsing="false" onMouseClicked="#promptForFile" prefWidth="90.0" text="Select model">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="5.0" />
+                     </VBox.margin>
+                          </Button>
+                          <TextField fx:id="imageSize" disable="true" prefWidth="120.0" promptText="Image size ..." />
+                          <Button fx:id="imageSizeButton" disable="true" mnemonicParsing="false" onMouseClicked="#registerImageSize" prefWidth="90.0" text="Submit">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="5.0" />
+                     </VBox.margin>
+                          </Button>
+                        <Button fx:id="makePredictionButton" disable="true" mnemonicParsing="false" onMouseClicked="#handlePrediction" text="Make prediction">
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin></Button>
+                        <Label fx:id="annotationProcessingLabel">
+                            <padding>
+                                <Insets bottom="5.0" top="50.0" />
+                            </padding>
+                        </Label>
+                        <ProgressBar fx:id="progressBar" prefWidth="120.0" progress="0.0">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </ProgressBar>
+                        <Label fx:id="percentLabel" />
+                        <Button fx:id="viewSummary" mnemonicParsing="false" onMouseClicked="#openSummaryScene" text="Summary" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </right>
+</fx:root>
